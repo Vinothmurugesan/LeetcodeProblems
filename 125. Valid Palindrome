@@ -1,0 +1,22 @@
+import java.util.StringTokenizer;
+class Solution {
+    public boolean isPalindrome(String s) {
+        if(s.equals(" ")){
+            return true;
+        }
+        StringTokenizer A = new StringTokenizer(s," !@#$%^&*(){}[]?>'<~`:;.,/?_-|\"");
+        String B = "";
+        while(A.hasMoreTokens()){
+           B+=A.nextToken();
+        }
+        B = B.toLowerCase();
+        StringBuffer ans = new StringBuffer(B);
+        if(B.equals(""+ans.reverse())){
+            return true;
+        }
+        else{
+            return false;
+        }
+
+    }
+}
