@@ -1,9 +1,17 @@
 class Solution {
     public int findTheWinner(int n, int k) {
-        int win =0;
+        Queue<Integer> queue = new LinkedList<Integer>();
         for(int i=1; i<=n; i++){
-            win = (win+k)%i;
+            queue.offer(i);
         }
-        return win+1;
+        while(queue.size()>1){
+            int remove = k;
+            while(remove>1){
+                queue.offer(queue.remove());
+                remove--;
+            }
+            queue.remove();
+        }
+        return queue.peek();
     }
 }
