@@ -1,0 +1,18 @@
+class Solution {
+    public String reverseParentheses(String s) {
+        StringBuilder resultstr = new StringBuilder(s);
+        int startindex = resultstr.lastIndexOf("(");
+        int endindex = resultstr.indexOf(")",startindex);
+
+        while(startindex!=-1){
+            StringBuilder sb = new StringBuilder(resultstr.substring(startindex+1, endindex));
+            sb.reverse();
+            resultstr.replace(startindex, endindex+1, sb.toString());
+            startindex = resultstr.lastIndexOf("(");
+            endindex = resultstr.indexOf(")", startindex);
+
+        }
+       return resultstr.toString();
+
+    }
+}
